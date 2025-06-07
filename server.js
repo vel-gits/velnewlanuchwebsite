@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Serve static files from the "public" folder
 app.use(express.static('public'));
@@ -16,7 +16,6 @@ app.post('/submit-form', (req, res) => {
     res.send(`<h1>Thank you, ${name}! Your message has been received.</h1>`);
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
